@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GOTS Marketplace - Admin Panel</title>
+  <style>
+    /* Global Styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background: #f8f8f8; color: #333; }
+    header, footer { background: #fff; padding: 20px; border: 1px solid #ccc; }
+    header { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-size: 24px; font-weight: bold; }
+    .search-bar { flex: 1; margin: 0 20px; }
+    .search-bar input { width: 100%; padding: 10px; font-size: 16px; }
+    nav { display: flex; gap: 15px; }
+    nav a { text-decoration: none; color: #333; }
+    footer { text-align: center; margin-top: 20px; }
+    main { padding: 20px; margin: 20px; background: #fff; border: 1px solid #ccc; }
+    .admin-section { margin-bottom: 20px; }
+    .admin-section h3 { margin-bottom: 10px; }
+    table { width: 100%; border-collapse: collapse; }
+    table, th, td { border: 1px solid #ccc; }
+    th, td { padding: 10px; text-align: left; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">GOTS Admin</div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search...">
+    </div>
+    <nav>
+      <a href="admin_panel.html">Dashboard</a>
+      <a href="admin_users.html">Users</a>
+      <a href="admin_auctions.html">Auctions</a>
+      <a href="login.html">Logout</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Admin Dashboard</h2>
+    <div class="admin-section">
+      <h3>Recent Auctions</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Product</th>
+            <th>Current Bid</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>001</td>
+            <td>Product 1</td>
+            <td>$100</td>
+            <td>Ongoing</td>
+          </tr>
+          <tr>
+            <td>002</td>
+            <td>Product 2</td>
+            <td>$150</td>
+            <td>Ended</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="admin-section">
+      <h3>Recent Users</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>U001</td>
+            <td>John Doe</td>
+            <td>john@example.com</td>
+          </tr>
+          <tr>
+            <td>U002</td>
+            <td>Jane Smith</td>
+            <td>jane@example.com</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 GOTS Marketplace. All rights reserved.</p>
+  </footer>
+</body>
+</html>

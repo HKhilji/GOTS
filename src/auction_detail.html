@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GOTS Marketplace - Auction Details</title>
+  <style>
+    /* Global Styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background: #f8f8f8; color: #333; }
+    header, footer { background: #fff; padding: 20px; border: 1px solid #ccc; }
+    header { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-size: 24px; font-weight: bold; }
+    .search-bar { flex: 1; margin: 0 20px; }
+    .search-bar input { width: 100%; padding: 10px; font-size: 16px; }
+    nav { display: flex; gap: 15px; }
+    nav a { text-decoration: none; color: #333; }
+    footer { text-align: center; margin-top: 20px; }
+    main { padding: 20px; margin: 20px; background: #fff; border: 1px solid #ccc; }
+    .auction-info { display: flex; gap: 20px; }
+    .auction-image { width: 40%; background: #ddd; display: flex; align-items: center; justify-content: center; }
+    .auction-details { width: 60%; }
+    .bid-section { margin-top: 20px; padding: 15px; border: 1px dashed #ccc; }
+    .bid-section input { padding: 10px; font-size: 16px; width: 60%; margin-right: 10px; }
+    .bid-section button { padding: 10px 20px; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">GOTS</div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search for products...">
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="categories.html">Categories</a>
+      <a href="my_auctions.html">My Auctions</a>
+      <a href="login.html">Sign In</a>
+    </nav>
+  </header>
+
+  <!-- Auction Details -->
+  <main>
+    <h2>Auction Detail: Product 1</h2>
+    <div class="auction-info">
+      <div class="auction-image">
+        <p>Image Placeholder</p>
+      </div>
+      <div class="auction-details">
+        <p><strong>Description:</strong> Detailed information about the product, its condition, and features.</p>
+        <p><strong>Current Bid:</strong> $100</p>
+        <p><strong>Time Left:</strong> 01:23:45</p>
+      </div>
+    </div>
+    <div class="bid-section">
+      <h3>Place Your Bid</h3>
+      <input type="number" placeholder="Enter bid amount">
+      <button type="button">Submit Bid</button>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 GOTS Marketplace. All rights reserved.</p>
+  </footer>
+</body>
+</html>

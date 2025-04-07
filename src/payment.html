@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GOTS Marketplace - Payment</title>
+  <style>
+    /* Global Styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background: #f8f8f8; color: #333; }
+    header, footer { background: #fff; padding: 20px; border: 1px solid #ccc; }
+    header { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-size: 24px; font-weight: bold; }
+    .search-bar { flex: 1; margin: 0 20px; }
+    .search-bar input { width: 100%; padding: 10px; font-size: 16px; }
+    nav { display: flex; gap: 15px; }
+    nav a { text-decoration: none; color: #333; }
+    footer { text-align: center; margin-top: 20px; }
+    main { padding: 20px; margin: 20px; background: #fff; border: 1px solid #ccc; }
+    .order-summary, .payment-form { margin-bottom: 20px; }
+    .payment-form label { display: block; margin-bottom: 5px; }
+    .payment-form input { width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; }
+    .payment-form button { padding: 10px 20px; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">GOTS</div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search for products...">
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="categories.html">Categories</a>
+      <a href="my_auctions.html">My Auctions</a>
+      <a href="login.html">Sign In</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Payment</h2>
+    <div class="order-summary">
+      <h3>Order Summary</h3>
+      <p>Product: Product 1</p>
+      <p>Final Bid: $100</p>
+      <p>Total Amount: $100</p>
+    </div>
+    <div class="payment-form">
+      <h3>Enter Payment Details</h3>
+      <form>
+        <label for="cardNumber">Card Number:</label>
+        <input type="text" id="cardNumber" placeholder="Enter card number">
+        <label for="expiry">Expiry Date:</label>
+        <input type="text" id="expiry" placeholder="MM/YY">
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" placeholder="CVV">
+        <button type="submit">Pay Now</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 GOTS Marketplace. All rights reserved.</p>
+  </footer>
+</body>
+</html>

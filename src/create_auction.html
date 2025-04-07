@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GOTS Marketplace - Create Auction</title>
+  <style>
+    /* Global Styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background: #f8f8f8; color: #333; }
+    header, footer { background: #fff; padding: 20px; border: 1px solid #ccc; }
+    header { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-size: 24px; font-weight: bold; }
+    .search-bar { flex: 1; margin: 0 20px; }
+    .search-bar input { width: 100%; padding: 10px; font-size: 16px; }
+    nav { display: flex; gap: 15px; }
+    nav a { text-decoration: none; color: #333; }
+    footer { text-align: center; margin-top: 20px; }
+    main { padding: 20px; margin: 20px; background: #fff; border: 1px solid #ccc; }
+    form { display: flex; flex-direction: column; gap: 15px; }
+    form input, form textarea, form select { padding: 10px; font-size: 16px; border: 1px solid #ccc; }
+    form button { padding: 10px; font-size: 16px; width: 150px; }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">GOTS</div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search for products...">
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="categories.html">Categories</a>
+      <a href="my_auctions.html">My Auctions</a>
+      <a href="login.html">Sign In</a>
+    </nav>
+  </header>
+
+  <!-- Auction Creation Form -->
+  <main>
+    <h2>Create New Auction</h2>
+    <form>
+      <label for="title">Product Title:</label>
+      <input type="text" id="title" placeholder="Enter product title">
+      
+      <label for="description">Product Description:</label>
+      <textarea id="description" rows="5" placeholder="Enter detailed description"></textarea>
+      
+      <label for="startingBid">Starting Bid ($):</label>
+      <input type="number" id="startingBid" placeholder="Enter starting bid">
+      
+      <label for="duration">Auction Duration (hours):</label>
+      <input type="number" id="duration" placeholder="Enter duration">
+      
+      <label for="image">Upload Image:</label>
+      <input type="file" id="image">
+      
+      <button type="submit">Create Auction</button>
+    </form>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 GOTS Marketplace. All rights reserved.</p>
+  </footer>
+</body>
+</html>

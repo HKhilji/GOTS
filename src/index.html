@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GOTS Marketplace - Home</title>
+  <style>
+    /* Global Styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background: #f8f8f8; color: #333; }
+    header, footer { background: #fff; padding: 20px; border: 1px solid #ccc; }
+    header { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-size: 24px; font-weight: bold; }
+    .search-bar { flex: 1; margin: 0 20px; }
+    .search-bar input { width: 100%; padding: 10px; font-size: 16px; }
+    nav { display: flex; gap: 15px; }
+    nav a { text-decoration: none; color: #333; }
+    footer { text-align: center; margin-top: 20px; }
+    main { display: flex; padding: 20px; }
+    .sidebar { width: 250px; background: #fff; padding: 20px; border: 1px solid #ccc; margin-right: 20px; }
+    .content { flex: 1; background: #fff; padding: 20px; border: 1px solid #ccc; }
+    .product { border: 1px dashed #ccc; padding: 15px; margin-bottom: 15px; }
+    .auction-timer { font-size: 14px; color: #888; }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">GOTS</div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search for products...">
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="categories.html">Categories</a>
+      <a href="my_auctions.html">My Auctions</a>
+      <a href="login.html">Sign In</a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Sidebar for Filters -->
+    <aside class="sidebar">
+      <h3>Filters</h3>
+      <ul>
+        <li>Categories</li>
+        <li>Price Range</li>
+        <li>Condition</li>
+        <li>Seller Ratings</li>
+      </ul>
+    </aside>
+
+    <!-- Featured Auctions -->
+    <section class="content">
+      <h2>Featured Auctions</h2>
+      <div class="product">
+        <h3>Product 1</h3>
+        <p>Brief description of product 1.</p>
+        <p class="auction-timer">Time Left: 01:23:45</p>
+        <a href="auction_detail.html">View Details</a>
+      </div>
+      <div class="product">
+        <h3>Product 2</h3>
+        <p>Brief description of product 2.</p>
+        <p class="auction-timer">Time Left: 00:45:12</p>
+        <a href="auction_detail.html">View Details</a>
+      </div>
+      <!-- More products... -->
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 GOTS Marketplace. All rights reserved.</p>
+  </footer>
+</body>
+</html>

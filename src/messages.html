@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GOTS Marketplace - Messages</title>
+  <style>
+    /* Global Styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background: #f8f8f8; color: #333; }
+    header, footer { background: #fff; padding: 20px; border: 1px solid #ccc; }
+    header { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-size: 24px; font-weight: bold; }
+    .search-bar { flex: 1; margin: 0 20px; }
+    .search-bar input { width: 100%; padding: 10px; font-size: 16px; }
+    nav { display: flex; gap: 15px; }
+    nav a { text-decoration: none; color: #333; }
+    footer { text-align: center; margin-top: 20px; }
+    main { padding: 20px; margin: 20px; background: #fff; border: 1px solid #ccc; }
+    .conversation-list { margin-bottom: 20px; }
+    .conversation { padding: 10px; border-bottom: 1px dashed #ccc; }
+    .chat-box { border: 1px solid #ccc; padding: 10px; height: 300px; overflow-y: auto; margin-bottom: 10px; }
+    .message-input { display: flex; gap: 10px; }
+    .message-input input { flex: 1; padding: 10px; font-size: 16px; border: 1px solid #ccc; }
+    .message-input button { padding: 10px 20px; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">GOTS</div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search for products...">
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="categories.html">Categories</a>
+      <a href="my_auctions.html">My Auctions</a>
+      <a href="login.html">Sign In</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Messages</h2>
+    <div class="conversation-list">
+      <div class="conversation">
+        <a href="#">Conversation with Seller A</a>
+      </div>
+      <div class="conversation">
+        <a href="#">Conversation with Buyer B</a>
+      </div>
+      <!-- More conversation entries as needed -->
+    </div>
+    <div class="chat-section">
+      <h3>Chat Window</h3>
+      <div class="chat-box">
+        <p><strong>Seller A:</strong> Hello, how can I help you?</p>
+        <p><strong>You:</strong> I have a question about the product.</p>
+        <!-- Chat messages go here -->
+      </div>
+      <div class="message-input">
+        <input type="text" placeholder="Type your message...">
+        <button type="button">Send</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 GOTS Marketplace. All rights reserved.</p>
+  </footer>
+</body>
+</html>
