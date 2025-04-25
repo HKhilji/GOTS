@@ -1,55 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Sign Up - MyApp</title>
-  <!-- Firebase SDKs -->
+  <meta charset="UTF-8" />
+  <title>Sign Up – MyApp</title>
+  <style>
+    /* ---------- basic layout ---------- */
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:#f4f4f4;
+      height:100vh;margin:0;
+      display:flex;align-items:center;justify-content:center;
+    }
+    .form-container{
+      width:300px;text-align:center;background:#fff;
+      padding:30px 40px;border-radius:8px;
+      box-shadow:0 0 10px rgba(0,0,0,.1);
+    }
+    .form-container h2{margin-bottom:20px}
+    .form-container input,
+    .form-container button{
+      width:100%;padding:10px;box-sizing:border-box;margin:10px 0;
+    }
+    button{
+      background:#007bff;color:#fff;border:none;border-radius:4px;cursor:pointer;
+    }
+    button:hover{background:#0056b3}
+    a{color:#007bff;text-decoration:none}
+    a:hover{text-decoration:underline}
+    #recaptcha-container{margin-top:10px}
+  </style>
+
+  <!-- ── Firebase (compat builds) ── -->
   <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
-  <script>
-    // Replace these with your Firebase project config values
-    const firebaseConfig = {
-  apiKey: "AIzaSyBV0Nam7avRnldV-fgkzIz9pLQN9djQcyo",
-  authDomain: "gots-6fa78.firebaseapp.com",
-  projectId: "gots-6fa78",
-  storageBucket: "gots-6fa78.firebasestorage.app",
-  messagingSenderId: "23047585440",
-  appId: "1:23047585440:web:60d79ee9fa4ba3f58e53c5",
-  measurementId: "G-CG4F2S40CQ"
-};
 
+  <script>
+    /* -- Your Firebase project keys -- */
+    const firebaseConfig = {
+      apiKey: "AIzaSyBV0Nam7avRnldV-fgkzIz9pLQN9djQcyo",
+      authDomain: "gots-6fa78.firebaseapp.com",
+      projectId: "gots-6fa78",
+      storageBucket: "gots-6fa78.appspot.com",
+      messagingSenderId: "23047585440",
+      appId: "1:23047585440:web:60d79ee9fa4ba3f58e53c5"
+    };
     firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
   </script>
 </head>
 <body>
-  <h2>Sign Up</h2>
-  <form id="signup-form">
-    <input type="text" id="name" placeholder="Name" required /><br>
-    <input type="email" id="email" placeholder="Email" required /><br>
-    <input type="password" id="password" placeholder="Password" required /><br>
-    <button type="submit">Sign Up</button>
-  </form>
-  <p>Already have an account? <a href="login.html">Login</a></p>
+  <div class="form-container">
+    <h2>Sign Up</h2>
+    <form onsubmit="return false;">
+      <!-- Name / e-mail kept only if you need them later -->
+      <input type="text"  id="name"  placeholder="Name"  required />
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="password" placeholder="Password" required />
+
+      <!-- Phone + OTP -->
+      <input type="tel" id="phone" placeholder="Phone (03XX-XXXXXXX)" required />
+      <div id="recaptcha-container"></div>
+
+      <button type="button" id="send-otp">Send OTP</button>
+
+      <input type="text" id="otp" placeholder="Enter OTP" style="display:none;" />
+      <button type="button" id="verify-otp" style="display:none;">Verify OTP →</button>
+    </form>
+
+    <p>Already have an account? <a href="login.html">Login</a></p>
+  </div>
+
   <script>
-    document.getElementById('signup-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-      
-      auth.createUserWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-          // Update user profile with display name
-          return userCredential.user.updateProfile({ displayName: name });
-        })
-        .then(() => {
-          window.location.href = "home.html";
-        })
-        .catch((error) => {
-          alert(error.message);
-        });
-    });
+    /* -------- helper to coerce 03XX-XXXXXXX → +923XXXXXXXXX -------- */
+    function formatPhone(pk){
+      const rx=/^03\d{2}-\d{7}$/;
+      if(!rx.test(pk)) throw Error('Phone format must be 03XX-XXXXXXX');
+      return '+92'+pk.slice(1).replace('-','');
+    }
+
+    let recaptchaVerifier=null;
+    let confirmationResult=null;
+
+    /* ---------- Send OTP ---------- */
+    document.getElementById('send-otp').onclick = async () =>{
+      try{
+        const phone=formatPhone(document.getElementById('phone').value.trim());
+
+        if(!recaptchaVerifier){
+          recaptchaVerifier = new firebase.auth.RecaptchaVerifier(
+            'recaptcha-container',{size:'invisible'}
+          );
+          await recaptchaVerifier.render();
+        }
+
+        confirmationResult = await auth.signInWithPhoneNumber(phone, recaptchaVerifier);
+        alert('OTP sent to '+phone);
+        document.getElementById('otp').style.display = 'block';
+        document.getElementById('verify-otp').style.display = 'block';
+      }catch(err){
+        alert('SMS not sent: '+err.message);
+      }
+    };
+
+    /* ---------- Verify OTP then redirect ---------- */
+    document.getElementById('verify-otp').onclick = async () =>{
+      if(!confirmationResult) return alert('Send OTP first');
+      const code=document.getElementById('otp').value.trim();
+      if(!code) return alert('Enter the OTP');
+
+      try{
+        await confirmationResult.confirm(code);           // signed in ✅
+        alert('Signup successful! Redirecting…');
+        window.location.replace('home.html');             // ✈️ instant redirect
+      }catch(err){
+        alert('Verification failed: '+err.message);
+      }
+    };
   </script>
 </body>
 </html>
